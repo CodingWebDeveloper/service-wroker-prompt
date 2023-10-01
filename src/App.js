@@ -1,8 +1,9 @@
-import React from "react";
+import React, { useEffect } from "react";
 import logo from "./logo.svg";
 import * as serviceWorkerRegistration from "./serviceWorkerRegistration";
 import "react-toastify/dist/ReactToastify.css";
 import "./App.css";
+import { toast } from "react-toastify";
 
 function App() {
   return (
@@ -18,7 +19,7 @@ function App() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          Hello World8
+          Hello World9
         </a>
       </header>
     </div>
