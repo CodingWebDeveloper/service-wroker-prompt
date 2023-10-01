@@ -1,5 +1,7 @@
 import React from "react";
 import logo from "./logo.svg";
+import * as serviceWorkerRegistration from "./serviceWorkerRegistration";
+
 import "./App.css";
 
 function App() {
@@ -28,4 +30,4 @@ export default App;
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.
 // Learn more about service workers: https://cra.link/PWA
-ServiceWorkerRegistration.register();
+serviceWorkerRegistration.register();
