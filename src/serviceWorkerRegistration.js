@@ -60,11 +60,13 @@ function registerValidSW(swUrl, config) {
   navigator.serviceWorker
     .register(swUrl)
     .then((registration) => {
+      // Check for updates at start.      registration.update();      // Check for updates every 5 min.      setInterval(() => {        registration.update();        console.debug("Checked for update...");      }, (1000 * 60) * 5);
       registration.onupdatefound = () => {
         const installingWorker = registration.installing;
         if (installingWorker == null) {
           return;
         }
+
         installingWorker.onstatechange = () => {
           if (installingWorker.state === "installed") {
             if (navigator.serviceWorker.controller) {
@@ -73,7 +75,7 @@ function registerValidSW(swUrl, config) {
               // content until all client tabs are closed.
               console.log(
                 "New content is available and will be used when all " +
-                  "tabs for this page are closed. See https://cra.link/PWA."
+                  "tabs for this page are closed. See https://bit.ly/CRA-PWA."
               );
 
               toast.info(
@@ -87,7 +89,6 @@ function registerValidSW(swUrl, config) {
                   // Prevents toast from auto closing
                 }
               );
-
               // Execute callback
               if (config && config.onUpdate) {
                 config.onUpdate(registration);
